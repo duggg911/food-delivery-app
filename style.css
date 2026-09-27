@@ -23,3 +23,12 @@ main {
     margin: 15px 0;
     border-radius: 10px;
 }
+
+.offer {
+    background-color: #ffe0b2;
+    color: #333;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    text-align: center;
+}
