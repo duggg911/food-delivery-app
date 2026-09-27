@@ -15,3 +15,7 @@ A simple food delivery application developed as part of Agile and DevOps coursew
 - CSS
 - Git
 - GitHub
+
+## Team Collaboration
+
+Developed collaboratively using Git and GitHub.
