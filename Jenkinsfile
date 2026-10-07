@@ -30,10 +30,32 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploying application...'
-                bat 'if not exist C:\\JenkinsDeploy mkdir C:\\JenkinsDeploy'
-                bat 'copy /Y food-delivery-app.zip C:\\JenkinsDeploy\\'
-                echo 'Deployment completed successfully.'
+                echo 'Deploying application to GitHub Pages...'
+
+                withCredentials([usernamePassword(
+                    credentialsId: 'github-token',
+                    usernameVariable: 'GITHUB_USER',
+                    passwordVariable: 'GITHUB_TOKEN'
+                )]) {
+
+                    bat '''
+                    git config user.name "Jenkins"
+                    git config user.email "jenkins@localhost"
+
+                    git clone https://%GITHUB_USER%:%GITHUB_TOKEN%@github.com/duggg911/food-delivery-app.git deploy-repo
+
+                    copy /Y index.html deploy-repo\\
+                    copy /Y style.css deploy-repo\\
+                    copy /Y README.md deploy-repo\\
+
+                    cd deploy-repo
+                    git add index.html style.css README.md
+                    git commit -m "Deploy website from Jenkins" || echo No changes to commit
+                    git push origin master
+                    '''
+
+                    echo 'Deployment to GitHub Pages completed successfully.'
+                }
             }
         }
     }
@@ -42,6 +64,7 @@ pipeline {
         success {
             echo 'CI/CD Pipeline completed successfully!'
         }
+
         failure {
             echo 'CI/CD Pipeline failed.'
         }
