@@ -1,34 +1,465 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    box-sizing: border-box;
 }
 
-header {
-    background-color: #ff6b35;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f9fc;
+    color: #172033;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar {
+    height: 72px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    border-bottom: 1px solid #e7ebf2;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #173b72;
+}
+
+.logo span {
+    margin-left: 5px;
+}
+
+nav {
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #526078;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #2864c7;
+}
+
+.cart-btn {
+    border: none;
+    background: #173b72;
     color: white;
+    padding: 11px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cart-btn:hover {
+    background: #2864c7;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px 10%;
+    background: linear-gradient(135deg, #eef5ff, #ffffff);
+}
+
+.hero-text {
+    max-width: 560px;
+}
+
+.tag {
+    display: inline-block;
+    background: #e1ecff;
+    color: #2864c7;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #14213d;
+}
+
+.hero h1 span {
+    color: #2864c7;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #667085;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.primary-btn {
+    border: none;
+    background: #173b72;
+    color: white;
+    padding: 14px 26px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #2864c7;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+    position: relative;
+    margin-right: 5%;
+}
+
+.image-circle {
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #dceaff, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 130px;
+    box-shadow: 0 20px 50px rgba(32, 75, 130, 0.15);
+}
+
+.floating-card {
+    position: absolute;
+    bottom: 5px;
+    left: -30px;
+    background: white;
+    padding: 13px 18px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    color: #173b72;
+    font-weight: bold;
+}
+
+.floating-card small {
+    color: #7a8497;
+    font-weight: normal;
+}
+
+
+/* =========================
+   OFFER
+========================= */
+
+.offer-section {
+    padding: 45px 10%;
+}
+
+.offer-card {
+    background: #173b72;
+    color: white;
+    border-radius: 18px;
+    padding: 28px 35px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    box-shadow: 0 15px 35px rgba(23, 59, 114, 0.2);
+}
+
+.offer-icon {
+    font-size: 42px;
+}
+
+.offer-content {
+    flex: 1;
+}
+
+.offer-content span {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #bcd5ff;
+    font-weight: bold;
+}
+
+.offer-content h2 {
+    margin: 7px 0;
+}
+
+.offer-content p {
+    color: #d8e5fa;
+}
+
+.offer-btn {
+    border: none;
+    background: white;
+    color: #173b72;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.menu-section {
+    padding: 60px 10%;
+}
+
+.section-heading {
     text-align: center;
-    padding: 30px;
+    margin-bottom: 40px;
 }
 
-main {
-    width: 80%;
-    margin: 30px auto;
+.section-heading span {
+    color: #2864c7;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-.food {
-    background-color: white;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 10px;
+.section-heading h2 {
+    font-size: 35px;
+    margin: 8px 0;
+    color: #172033;
 }
 
-.offer {
-    background-color: #ffe0b2;
-    color: #333;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 10px;
+.section-heading p {
+    color: #788398;
+}
+
+.food-container {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.food-card {
+    width: 330px;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e7ebf2;
+    box-shadow: 0 8px 25px rgba(20, 40, 80, 0.06);
+    transition: 0.3s;
+}
+
+.food-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(20, 40, 80, 0.12);
+}
+
+.food-image {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    position: relative;
+}
+
+.veg-image {
+    background: #edf8f1;
+}
+
+.biryani-image {
+    background: #f0efff;
+}
+
+.rating {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: white;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.food-details {
+    padding: 22px;
+}
+
+.food-type {
+    font-size: 10px;
+    color: #2864c7;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.food-details h3 {
+    font-size: 23px;
+    margin: 8px 0;
+}
+
+.food-details p {
+    color: #7a8497;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.food-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.food-bottom strong {
+    font-size: 21px;
+    color: #173b72;
+}
+
+.order-btn {
+    border: none;
+    background: #e7f0ff;
+    color: #2864c7;
+    padding: 9px 15px;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.order-btn:hover {
+    background: #2864c7;
+    color: white;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+    padding: 55px 10%;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background: white;
+    border-top: 1px solid #e7ebf2;
+}
+
+.feature {
     text-align: center;
+    width: 250px;
+}
+
+.feature div {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    margin-bottom: 8px;
+}
+
+.feature p {
+    color: #7a8497;
+    font-size: 14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    background: #14213d;
+    color: white;
+    padding: 35px 20px;
+}
+
+.footer-logo {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+footer p {
+    color: #c7d2e5;
+    margin-bottom: 12px;
+}
+
+footer small {
+    color: #8795aa;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image {
+        margin-right: 0;
+    }
+
+    .offer-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
 }

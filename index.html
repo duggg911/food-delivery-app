@@ -1,37 +1,386 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Food Delivery App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie - Food Delivery App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Foodie</h1>
-        <p>Fresh food delivered to your doorstep</p>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            🍴 <span>Foodie</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#offers">Offers</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <button class="cart-btn" onclick="showCart()">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </button>
     </header>
 
-    <main>
-        <h2>Today's Menu</h2>
-        
-        <div class="offer">
-           <h2>Special Offer!</h2>
-           <p>Get 10% off your first food order.</p>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <span class="tag">✨ Fresh • Fast • Delicious</span>
+
+            <h1>
+                Delicious food,<br>
+                <span>delivered fresh.</span>
+            </h1>
+
+            <p>
+                Enjoy your favourite meals prepared with care
+                and delivered straight to your doorstep.
+            </p>
+
+            <button class="primary-btn"
+                onclick="document.getElementById('menu').scrollIntoView()">
+                Explore Menu →
+            </button>
         </div>
 
-        <div class="food">
-            <h3>Veg Thali</h3>
-            <p>Rice, Dal, Roti, Sabzi and Salad</p>
-            <p>Price: ₹120</p>
+        <div class="hero-image">
+            <div class="image-circle">
+                🍔
+            </div>
+
+            <div class="floating-card">
+                ⭐ 4.9 <br>
+                <small>Loved by customers</small>
+            </div>
         </div>
 
-        <div class="food">
-            <h3>Paneer Biryani</h3>
-            <p>Delicious paneer biryani with raita</p>
-            <p>Price: ₹180</p>
+    </section>
+
+
+    <!-- Special Offer -->
+    <section class="offer-section" id="offers">
+
+        <div class="offer-card">
+
+            <div class="offer-icon">🎁</div>
+
+            <div class="offer-content">
+                <span>LIMITED TIME OFFER</span>
+                <h2>Get 10% OFF your first order!</h2>
+                <p>Fresh meals, amazing taste and great savings.</p>
+            </div>
+
+            <button class="offer-btn"
+                onclick="addToCart('10% OFF First Order', 0)">
+                Order Now
+            </button>
+
         </div>
-    </main>
+
+    </section>
+
+
+    <!-- Menu -->
+    <section class="menu-section" id="menu">
+
+        <div class="section-heading">
+            <span>OUR MENU</span>
+            <h2>Today's Menu</h2>
+            <p>Choose your favourite meal and enjoy!</p>
+        </div>
+
+
+        <div class="food-container">
+
+            <!-- Veg Thali -->
+            <div class="food-card">
+
+                <div class="food-image veg-image">
+                    🍛
+                    <span class="rating">⭐ 4.8</span>
+                </div>
+
+                <div class="food-details">
+                    <span class="food-type">VEGETARIAN</span>
+
+                    <h3>Veg Thali</h3>
+
+                    <p>
+                        Rice, Dal, Roti, Sabzi and Salad
+                    </p>
+
+                    <div class="food-bottom">
+                        <strong>₹120</strong>
+
+                        <button class="order-btn"
+                            onclick="addToCart('Veg Thali', 120)">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Paneer Biryani -->
+            <div class="food-card">
+
+                <div class="food-image biryani-image">
+                    🍚
+                    <span class="rating">⭐ 4.9</span>
+                </div>
+
+                <div class="food-details">
+                    <span class="food-type">CHEF'S SPECIAL</span>
+
+                    <h3>Paneer Biryani</h3>
+
+                    <p>
+                        Delicious paneer biryani with raita
+                    </p>
+
+                    <div class="food-bottom">
+                        <strong>₹180</strong>
+
+                        <button class="order-btn"
+                            onclick="addToCart('Paneer Biryani', 180)">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Cheese Pizza -->
+            <div class="food-card">
+
+                <div class="food-image pizza-image">
+                    🍕
+
+                    <span class="rating">⭐ 4.7</span>
+                </div>
+
+                <div class="food-details">
+                    <span class="food-type">BEST SELLER</span>
+
+                    <h3>Cheese Pizza</h3>
+
+                    <p>
+                        Cheesy pizza loaded with fresh vegetables
+                    </p>
+
+                    <div class="food-bottom">
+                        <strong>₹160</strong>
+
+                        <button class="order-btn"
+                            onclick="addToCart('Cheese Pizza', 160)">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Classic Burger -->
+            <div class="food-card">
+
+                <div class="food-image burger-image">
+                    🍔
+
+                    <span class="rating">⭐ 4.8</span>
+                </div>
+
+                <div class="food-details">
+                    <span class="food-type">POPULAR</span>
+
+                    <h3>Classic Burger</h3>
+
+                    <p>
+                        Juicy burger with cheese, lettuce and sauces
+                    </p>
+
+                    <div class="food-bottom">
+                        <strong>₹140</strong>
+
+                        <button class="order-btn"
+                            onclick="addToCart('Classic Burger', 140)">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Veg Noodles -->
+            <div class="food-card">
+
+                <div class="food-image noodles-image">
+                    🍜
+
+                    <span class="rating">⭐ 4.6</span>
+                </div>
+
+                <div class="food-details">
+                    <span class="food-type">HOT & FRESH</span>
+
+                    <h3>Veg Noodles</h3>
+
+                    <p>
+                        Stir-fried noodles with fresh vegetables
+                    </p>
+
+                    <div class="food-bottom">
+                        <strong>₹130</strong>
+
+                        <button class="order-btn"
+                            onclick="addToCart('Veg Noodles', 130)">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Veg Sandwich -->
+            <div class="food-card">
+
+                <div class="food-image sandwich-image">
+                    🥪
+
+                    <span class="rating">⭐ 4.5</span>
+                </div>
+
+                <div class="food-details">
+                    <span class="food-type">QUICK BITE</span>
+
+                    <h3>Veg Sandwich</h3>
+
+                    <p>
+                        Fresh vegetables with cheese and delicious sauce
+                    </p>
+
+                    <div class="food-bottom">
+                        <strong>₹100</strong>
+
+                        <button class="order-btn"
+                            onclick="addToCart('Veg Sandwich', 100)">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Why Foodie -->
+    <section class="features" id="about">
+
+        <div class="feature">
+            <div>🚀</div>
+            <h3>Fast Delivery</h3>
+            <p>Get your food delivered quickly.</p>
+        </div>
+
+        <div class="feature">
+            <div>🥗</div>
+            <h3>Fresh Food</h3>
+            <p>Freshly prepared meals every day.</p>
+        </div>
+
+        <div class="feature">
+            <div>💙</div>
+            <h3>Made With Care</h3>
+            <p>Quality meals you'll love.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">🍴 Foodie</div>
+        <p>Fresh food delivered to your doorstep.</p>
+        <small>© 2026 Foodie. All rights reserved.</small>
+    </footer>
+
+
+    <!-- Cart JavaScript -->
+    <script>
+
+        let cart = [];
+
+        // Add item to cart
+        function addToCart(item, price) {
+
+            cart.push({
+                name: item,
+                price: price
+            });
+
+            updateCartCount();
+
+            alert(item + " added to cart! 🛒");
+        }
+
+
+        // Update cart number
+        function updateCartCount() {
+
+            document.getElementById("cart-count").textContent = cart.length;
+
+        }
+
+
+        // Show cart
+        function showCart() {
+
+            if (cart.length === 0) {
+
+                alert("🛒 Your cart is empty!\n\nPlease add some delicious food first.");
+
+                return;
+            }
+
+            let cartMessage = "🛒 YOUR CART\n\n";
+            let total = 0;
+
+            cart.forEach(function(food, index) {
+
+                cartMessage +=
+                    (index + 1) +
+                    ". " +
+                    food.name +
+                    " - ₹" +
+                    food.price +
+                    "\n";
+
+                total += food.price;
+
+            });
+
+            cartMessage += "\n--------------------";
+            cartMessage += "\nTotal: ₹" + total;
+            cartMessage += "\n\nThank you for ordering from Foodie! 💙";
+
+            alert(cartMessage);
+        }
+
+    </script>
 
 </body>
 </html>
